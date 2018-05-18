@@ -3,6 +3,17 @@ import logo from './logo.svg';
 import ReactClass from 'create-react-class';
 import './App.css';
 
+const GreeterMessage = ReactClass({
+	render: function() {
+		return (
+			<div className='greeter-message'>
+				<h1>Some H1</h1>
+				<p>Some paragraph</p>
+			</div>
+		)
+	}
+});
+
 const Greeter = ReactClass({
 	getDefaultProps: function() {
 		return {
@@ -30,10 +41,15 @@ const Greeter = ReactClass({
 	},
   render: function() {
   	const aName = this.state.name;
+  	const aMessage = this.props.message;
+
 		return(
   		<div>
 				<h1 className="App-title">{aName} React</h1>
-				<p>{this.props.message}</p>
+				<p>{aMessage}</p>
+
+				<GreeterMessage />
+				<p>Hello</p>
 
 				<form onSubmit={this.onButtonClick}>
 					<input type='text' ref='name' />
